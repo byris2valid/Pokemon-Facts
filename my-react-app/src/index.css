@@ -1,0 +1,233 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Playwrite+BE+VLG:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Playwrite+BE+VLG:wght@100..400&family=Rubik+Bubbles&display=swap');
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.App {
+  background: linear-gradient(to right top, #000000, #a43b91df);
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.App-content {
+  min-height: 540px;
+  width: 1220px;
+  margin: 100px auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+
+ .Pokemon-img {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin: 0;
+  padding: 15px 0px  0px 28px;
+  width: auto;
+  }
+
+  
+ .img1-container h3,
+ .img2-container h3,
+ .img3-container h3,
+ .img4-container h3,
+ .img5-container h3,
+ .img6-container h3,
+ .img7-container h3,
+ .img8-container h3
+  {
+  position: absolute;
+  color: white;
+  font-family: "Bangers", system-ui;
+  font-size: 30px;
+  z-index: 5;
+  text-shadow: 2px 2px 4px #000;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 15px;
+  border-radius: 8px;
+  margin: 170px 0px 0px 75px;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.img1-container {
+  margin-right: 0px; 
+  z-index: 1;
+}
+
+.img1-container img {
+  width: 260px;
+  height: 230px;
+  border: 3px solid #000;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+ }
+
+ .img1-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.873);
+}
+
+.img2-container {
+  z-index: 1;
+}
+
+.img2-container img {
+  width: 260px;
+  height: 230px;
+  border: 3px solid #000;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.img2-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.873);
+}
+
+.img3-container {
+  z-index: 1;
+}
+
+.img3-container img {
+  width: 270px;
+  height: 230px;
+  border: 3px solid #000;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.img3-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.873);
+}
+
+.img4-container {
+  z-index: 1;
+}
+
+.img4-container img {
+  width: 250px;
+  height: 230px;
+  border: 3px solid #000;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.img4-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.873);
+}
+
+.Pokemon2-img {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin: 0;
+  padding: 8px 0px 0px 27px;
+  width: auto;
+  }
+
+  .img5-container {
+    z-index: 1;
+    margin: 0px 0px 10px 0px;
+  }
+
+  .img5-container img {
+    width: 260px;
+    height: 230px;
+    border: 3px solid #000;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .img5-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.873);
+  }
+
+  .img6-container {
+    z-index: 1;
+  }
+
+  .img6-container img {
+    width: 262px;
+    height: 230px;
+    border: 3px solid #000;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .img6-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.873);
+  }
+
+  .img7-container {
+    z-index: 1;
+  }
+
+  .img7-container img {
+    width: 270px;
+    height: 230px;
+    border: 3px solid #000;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .img7-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.873);
+  }
+
+  .img8-container {
+    z-index: 1;
+  }
+
+  .img8-container img {
+    width: 250px;
+    height: 230px;
+    border: 3px solid #000;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .img8-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.873);
+  }
+
+
+  .pokemon-button {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 100%;
+    display: block;
+  }
+
+  .mewTwo-header {
+    display: flex;
+    top: 30%;  
+    left: 0;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
