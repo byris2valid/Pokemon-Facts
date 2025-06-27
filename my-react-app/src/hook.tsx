@@ -1,21 +1,23 @@
 import { useState } from 'react';
 import { Pokemon } from './data.tsx';
 
-export const UsePokemonFacts = (pokemonData: Pokemon[]) => {
+export function usePokemonFacts(pokemonData: Pokemon[]) {
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
+  const [displayedPokemon, setDisplayedPokemon] = useState<Pokemon[]>(pokemonData);
 
   const handlePokemonSelect = (pokemon: Pokemon) => {
     setSelectedPokemon(pokemon);
-  };
-  const handleShowAll = () => {
-    setSelectedPokemon(null);
+    setDisplayedPokemon([pokemon]);
   };
 
-  const displayedPokemon = selectedPokemon ? [selectedPokemon] : pokemonData;
+  const handleShowAll = () => {
+    setSelectedPokemon(null);
+    setDisplayedPokemon(pokemonData);
+  };
   return {
     selectedPokemon,
+    displayedPokemon,
     handlePokemonSelect,
     handleShowAll,
-    displayedPokemon
   };
-};
+}

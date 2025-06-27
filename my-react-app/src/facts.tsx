@@ -1,6 +1,7 @@
 import React from 'react';
 import { Pokemon, pokemonData } from './data.tsx';
-import { UsePokemonFacts } from './hook.tsx';
+import {usePokemonFacts} from './hook.tsx';
+
 
 // Component to display a single Pokemon fact
 const PokemonFactCard: React.FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
@@ -25,7 +26,7 @@ const PokemonFacts: React.FC = () => {
     handlePokemonSelect,
     handleShowAll,
     displayedPokemon
-  } = UsePokemonFacts(pokemonData);
+  } = usePokemonFacts(pokemonData);
 
   return (
     <div style={{ padding: '20px' }}>
@@ -68,7 +69,7 @@ const PokemonFacts: React.FC = () => {
 
       {/* Pokemon Facts Display */}
       <div>
-        {displayedPokemon.map((pokemon) => (
+        {displayedPokemon.map((pokemon: Pokemon) => (
           <PokemonFactCard key={pokemon.id} pokemon={pokemon} />
         ))}
       </div>
