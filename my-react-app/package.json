@@ -2,11 +2,13 @@
   "name": "my-react-app",
   "version": "0.1.0",
   "private": true,
-  "peerDependencies": {
-    "cra-template": "1.2.0",
+  "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-scripts": "^0.0.0"
+    "react-scripts": "5.0.1"
+  },
+  "peerDependencies": {
+    "cra-template": "1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -31,5 +33,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "overrides": {
+  "react": "19.1.0",
+  "react-dom": "19.1.0"
+}
+
 }
