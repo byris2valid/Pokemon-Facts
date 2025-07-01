@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Pokemon } from './data.tsx';
 
 export function usePokemonFacts(pokemonData: Pokemon[]) {
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
-  const [displayedPokemon, setDisplayedPokemon] = useState<Pokemon[]>(pokemonData);
+  const [displayedPokemon, setDisplayedPokemon] = useState<Pokemon[]>([]);
+
+  // Initialize displayedPokemon when pokemonData changes
+  useEffect(() => {
+    setDisplayedPokemon(pokemonData);
+  }, [pokemonData]);
 
   const handlePokemonSelect = (pokemon: Pokemon) => {
     setSelectedPokemon(pokemon);
@@ -14,6 +19,7 @@ export function usePokemonFacts(pokemonData: Pokemon[]) {
     setSelectedPokemon(null);
     setDisplayedPokemon(pokemonData);
   };
+
   return {
     selectedPokemon,
     displayedPokemon,

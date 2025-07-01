@@ -5,7 +5,7 @@ import { pokemonData } from "./data.tsx";
 const Pokemonbutton = ({ onClick, children, className = "pokemon-button" }: {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
-  className?: string;
+  className?: string; 
 }) => {
   const [currentFact, setCurrentFact] = useState("");
   const [showFact, setShowFact] = useState(false); 
