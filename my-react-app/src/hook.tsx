@@ -5,7 +5,7 @@ export function usePokemonFacts(pokemonData: Pokemon[]) {
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
   const [displayedPokemon, setDisplayedPokemon] = useState<Pokemon[]>([]);
 
-  // Initialize displayedPokemon when pokemonData changes
+
   useEffect(() => {
     setDisplayedPokemon(pokemonData);
   }, [pokemonData]);
@@ -26,4 +26,4 @@ export function usePokemonFacts(pokemonData: Pokemon[]) {
     handlePokemonSelect,
     handleShowAll,
   };
-}
+} 

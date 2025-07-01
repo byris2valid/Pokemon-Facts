@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { usePokemonFacts } from "./hook.tsx";
 import { pokemonData } from "./data.tsx";
 
@@ -7,18 +7,24 @@ const Pokemonbutton = ({ onClick, children, className = "pokemon-button" }: {
   children: React.ReactNode;
   className?: string; 
 }) => {
-  const [currentFact, setCurrentFact] = useState("");
-  const [showFact, setShowFact] = useState(false); 
+  const [currentFact, setCurrentFact] = useState<string>("");
+  const [showFact, setShowFact] = useState<boolean>(false);
+  
+  // Make sure this hook is called unconditionally
+  const fact = usePokemonFacts(pokemonData);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const fact = usePokemonFacts(pokemonData);
-    setCurrentFact(fact.toString());
+  const handleClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    setCurrentFact(fact.selectedPokemon?.fact || "");
     setShowFact(true);
 
     if (onClick) {
       onClick(e);
     }
-  };
+  }, [fact, onClick]);
+
+  const handleClose = useCallback(() => {
+    setShowFact(false);
+  }, []);
 
   return (
     <div>
@@ -28,7 +34,7 @@ const Pokemonbutton = ({ onClick, children, className = "pokemon-button" }: {
       {showFact && (
         <div className="pokemon-fact-display">
           <p>{currentFact}</p>
-          <button onClick={() => setShowFact(false)}>Close</button>
+          <button onClick={handleClose}>Close</button>
         </div>
       )}
     </div>
