@@ -10,7 +10,7 @@ const Pokemonbutton = ({ onClick, children, className = "pokemon-button" }: {
   const [currentFact, setCurrentFact] = useState<string>("");
   const [showFact, setShowFact] = useState<boolean>(false);
   
-  // Make sure this hook is called unconditionally
+  
   const fact = usePokemonFacts(pokemonData);
 
   const handleClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {

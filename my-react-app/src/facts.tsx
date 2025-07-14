@@ -2,8 +2,6 @@ import React from 'react';
 import { Pokemon, pokemonData } from './data.tsx';
 import {usePokemonFacts} from './hook.tsx';
 
-
-// Component to display a single Pokemon fact
 const PokemonFactCard: React.FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
   return (
     <div style={{ 
@@ -45,9 +43,7 @@ const PokemonFacts: React.FC = () => {
             borderRadius: '5px',
             cursor: 'pointer'
           }}
-        >
-          Show All
-        </button>
+        >Show All </button>
         {pokemonData.map((pokemon) => (
           <button
             key={pokemon.id}
@@ -61,9 +57,7 @@ const PokemonFacts: React.FC = () => {
               borderRadius: '5px',
               cursor: 'pointer'
             }}
-          >
-            {pokemon.name}
-          </button>
+          > {pokemon.name} </button>
         ))}
       </div>
 

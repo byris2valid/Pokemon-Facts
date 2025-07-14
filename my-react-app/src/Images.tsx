@@ -2,9 +2,6 @@ import PokemonFacts from "./facts.tsx";
 import Pokemonbutton from "./button.tsx";
 
 
-  
-// React component for displaying images
-
 const Images = () => {
   return (
     <div>
