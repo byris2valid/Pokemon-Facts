@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pokemon, pokemonData } from './data.tsx';
-import {usePokemonFacts} from './hook.tsx';
+import { usePokemonFacts } from './hook.tsx';
 
 const PokemonFactCard: React.FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
   return (
@@ -17,23 +17,21 @@ const PokemonFactCard: React.FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
   );
 };
 
-// Component to select and display Pokemon facts
 const PokemonFacts: React.FC = () => {
   const {
     selectedPokemon,
-    handlePokemonSelect,
-    handleShowAll,
-    displayedPokemon
+    displayedPokemon,
+    selectPokemonById,
+    setSelectedPokemon
   } = usePokemonFacts(pokemonData);
 
   return (
     <div style={{ padding: '20px' }}>
       <h1>Pokemon Facts</h1>
       
-      {/* Pokemon Selection Buttons */}
       <div style={{ marginBottom: '20px' }}>
         <button 
-          onClick={handleShowAll}
+          onClick={() => setSelectedPokemon(null)}
           style={{ 
             margin: '5px', 
             padding: '10px 15px', 
@@ -43,11 +41,14 @@ const PokemonFacts: React.FC = () => {
             borderRadius: '5px',
             cursor: 'pointer'
           }}
-        >Show All </button>
+        >
+          Show All
+        </button>
+        
         {pokemonData.map((pokemon) => (
           <button
             key={pokemon.id}
-            onClick={() => handlePokemonSelect(pokemon)}
+            onClick={() => selectPokemonById(pokemon.id)}
             style={{ 
               margin: '5px', 
               padding: '10px 15px', 
@@ -57,13 +58,14 @@ const PokemonFacts: React.FC = () => {
               borderRadius: '5px',
               cursor: 'pointer'
             }}
-          > {pokemon.name} </button>
+          >
+            {pokemon.name}
+          </button>
         ))}
       </div>
 
-      {/* Pokemon Facts Display */}
       <div>
-        {displayedPokemon.map((pokemon: Pokemon) => (
+        {displayedPokemon.map((pokemon) => (
           <PokemonFactCard key={pokemon.id} pokemon={pokemon} />
         ))}
       </div>

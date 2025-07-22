@@ -2,29 +2,37 @@ import { useState, useCallback } from "react";
 import { usePokemonFacts } from "./hook.tsx";
 import { pokemonData } from "./data.tsx";
 
-const Pokemonbutton = ({ onClick, children, className = "pokemon-button" }: {
+const Pokemonbutton = ({
+  onClick,
+  children,
+  className = "pokemon-button",
+  pokemonId,
+}: {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
-  className?: string; 
+  className?: string;
+  pokemonId: number;
 }) => {
   const [currentFact, setCurrentFact] = useState<string>("");
   const [showFact, setShowFact] = useState<boolean>(false);
-  
-  
+
   const fact = usePokemonFacts(pokemonData);
 
   const handleClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
-    setCurrentFact(fact.selectedPokemon?.fact || "");
-    setShowFact(true);
+    fact.selectPokemonById(pokemonId);
+
+    setTimeout(() => {
+      const factText = fact.selectedPokemon?.fact || "No fact available";
+      setCurrentFact(factText);
+      setShowFact(true);
+    }, 0);
 
     if (onClick) {
       onClick(e);
     }
-  }, [fact, onClick]);
+  }, [fact, pokemonId, onClick]);
 
-  const handleClose = useCallback(() => {
-    setShowFact(false);
-  }, []);
+  const handleClose = () => setShowFact(false);
 
   return (
     <div>

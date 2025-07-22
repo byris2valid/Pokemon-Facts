@@ -1,29 +1,20 @@
-import { useState, useEffect } from 'react';
-import { Pokemon } from './data.tsx';
+import { useState} from "react";
+import { Pokemon } from "./data.tsx";
 
 export function usePokemonFacts(pokemonData: Pokemon[]) {
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
-  const [displayedPokemon, setDisplayedPokemon] = useState<Pokemon[]>([]);
 
-
-  useEffect(() => {
-    setDisplayedPokemon(pokemonData);
-  }, [pokemonData]);
-
-  const handlePokemonSelect = (pokemon: Pokemon) => {
-    setSelectedPokemon(pokemon);
-    setDisplayedPokemon([pokemon]);
+  const selectPokemonById = (id: number) => {
+    const found = pokemonData.find(p => p.id === id);
+    if (found) setSelectedPokemon(found);
   };
 
-  const handleShowAll = () => {
-    setSelectedPokemon(null);
-    setDisplayedPokemon(pokemonData);
-  };
+  const displayedPokemon = selectedPokemon ? [selectedPokemon] : pokemonData;
 
   return {
     selectedPokemon,
     displayedPokemon,
-    handlePokemonSelect,
-    handleShowAll,
+    selectPokemonById,
+    setSelectedPokemon, // <- Add this so the component can reset
   };
-} 
+}

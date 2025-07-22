@@ -1,11 +1,9 @@
-
-
-
 export interface Pokemon {
   id: number;
   name: string;
   fact: string;
   type: { Water: string; Fire: string; Grass: string; };
+  
 }
 
 export const pokemonData: Pokemon[] = [
