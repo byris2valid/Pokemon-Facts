@@ -35,14 +35,42 @@ const Pokemonbutton = ({
   const handleClose = () => setShowFact(false);
 
   return (
-    <div>
-      <button className={className} onClick={handleClick}>
+    <div style={{ marginBottom: "20px" }}>
+      <button
+        className={className}
+        onClick={handleClick}
+      >
         {children}
       </button>
+
       {showFact && (
-        <div className="pokemon-fact-display">
-          <p>{currentFact}</p>
-          <button onClick={handleClose}>Close</button>
+        <div
+          className="pokemon-fact-display"
+          style={{
+            padding: "20px",
+            border: "2px solid #ccc",
+            borderRadius: "8px",
+            backgroundColor: "#f9f9f9",
+            maxWidth: "500px",
+          }}
+        >
+          <p style={{ fontSize: "16px", lineHeight: "1.5", color: "#333" }}>
+            {currentFact}
+          </p>
+          <button
+            onClick={handleClose}
+            style={{
+              marginTop: "10px",
+              padding: "8px 12px",
+              backgroundColor: "#dc3545",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            Close
+          </button>
         </div>
       )}
     </div>
