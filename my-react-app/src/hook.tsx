@@ -15,6 +15,6 @@ export function usePokemonFacts(pokemonData: Pokemon[]) {
     selectedPokemon,
     displayedPokemon,
     selectPokemonById,
-    setSelectedPokemon, // <- Add this so the component can reset
+    setSelectedPokemon,
   };
 }
